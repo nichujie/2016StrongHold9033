@@ -28,15 +28,14 @@ public:
 	void TeleopInit();
 	void TeleopPeriodic();
 
-	// robot whines if I don't overload these.
-	// apparently it's okay if these are inline...
+	
 	void TestInit()
 		{ std::cout <<"Testing mode enabled...\nCurrently doing: (NULL)" <<std::endl; }
 	void TestPeriodic()
 		{  }
 
 	void DisabledInit()
-		{ std::cout <<"\n\n我们的同学为什么那么优秀！！！" <<std::endl; }
+		{ std::cout <<"Disabled" <<std::endl; }
 
 	
 };
