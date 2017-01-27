@@ -7,25 +7,18 @@
 class Robot: public IterativeRobot {
 
 public:
-    Robot(); //constructor must be public
+    Robot(); 
 
 public:
 	//robot parts:
-    RobotDrive robotdrv;
-    VictorSP motor4;
+   	RobotDrive robotdrv;
+  	VictorSP motor4;
 	Solenoid noid1;
 	Joystick driveCtl;
 	Compressor airPump; // compressor
 	AHRS *ahrs;
-	//Encoder *enc;
-	// these are for the [unused] autonomous code chooser (smart-dashboard integration)
-	SendableChooser* chooser = new SendableChooser();
-	const std::string autoStopAtObstacle = "stop at first vertical obstacle";
-	const std::string autoLowBar = "go under low bar";
-	const std::string autoSeeSaws  = "go over see-saws";
-	std::string autoSelected;
-
-
+	//Encoder *enc;	
+	
 	// functions inherited from the IterativeRobot base-class:
 	void RobotInit(); //run once on startup
 
@@ -43,7 +36,7 @@ public:
 		{  }
 
 	void DisabledInit()
-		{ std::cout <<"\n\nÎÒÃÇµÄÍ¬Ñ§ÎªÊ²Ã´ÄÇÃ´ÓÅÐã£¡£¡£¡" <<std::endl; }
+		{ std::cout <<"\n\næˆ‘ä»¬çš„åŒå­¦ä¸ºä»€ä¹ˆé‚£ä¹ˆä¼˜ç§€ï¼ï¼ï¼" <<std::endl; }
 
 	
 };
