@@ -1,7 +1,6 @@
 #include "Robot.h"
 float SpeedGear=0.8f;
 //static bool rotate=true;
-//robotdrv:
 // constructor
 Robot::Robot() : 	// member initializations (constructor)
 	robotdrv(0,1,2,3),
@@ -11,25 +10,21 @@ Robot::Robot() : 	// member initializations (constructor)
 	airPump(0)      //compressor
 	{
 		try {
-				ahrs = new AHRS(SPI::Port::kMXP);
+			ahrs = new AHRS(SPI::Port::kMXP);
 	        } catch (std::exception &ex ) {
-	            std::string err_string = "Error instantiating navX MXP:  ";
-	            err_string += ex.what();
-	            //DriverStation::ReportError(err_string.c_str());
+	           	std::string err_string = "Error instantiating navX MXP:  ";
+	            	err_string += ex.what();
+	            	//DriverStation::ReportError(err_string.c_str());
 	        }
 	robotdrv.SetExpiration(0.1);
 	}
 
 // on startup
 void Robot::RobotInit()  {
-	//setup the auto-chooser:
+	
 	ahrs->Reset();
 	noid1.Set(false);
 	airPump.SetClosedLoopControl(true);
-	//chooser->AddDefault(autoStopAtObstacle, (void*) &autoStopAtObstacle);
-	//chooser->AddObject(autoLowBar, (void*) &autoLowBar);
-	//chooser->AddObject(autoSeeSaws, (void*) &autoSeeSaws);
-	//SmartDashboard::PutData("Auto Modes", chooser);
 	//CameraServer::GetInstance()->SetSize(0);
 	//get camera feed and post it to the smartdashboard
 
@@ -37,15 +32,6 @@ void Robot::RobotInit()  {
 }
 
 
-/**Notes on autonomous chooing code:
- * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
- * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
- * Dashboard, remove all of the chooser code and uncomment the GetString line to get the auto name from the text box
- * below the Gyro
- *
- * You can add additional auto modes by adding additional comparisons to the if-else structure below with additional strings.
- * If using the SendableChooser make sure to add them to the chooser code above as well.
- */
 void Robot::AutonomousInit(){
 	noid1.Set(false);
 	airPump.SetClosedLoopControl(true);
@@ -72,17 +58,7 @@ void Robot::AutonomousInit(){
 }
 
 void Robot::AutonomousPeriodic(){
-	/* requires ultrasonic sensor :(
-	if (autoSelected == autoLowBar) {}
-	else if (autoSelected == autoSeeSaws) {}
-	else { // default autonomous code
-		// drive forward and stop 3 feet in front of the vertical obstacle.
-		// the robot and field are built in inches, so it's probably best not to use metric =(
-		if (sonar.GetRangeInches() > STOPPING_DISTANCE_INCHES)
-			myRobot.Drive(-0.3f, 0);
-		else myRobot.Drive(-0.5f, 0);
-	} */
-	//SmartDashboard::PutNumber("Angle:",ahrs->GetAngle());
+	
 }
 
 
